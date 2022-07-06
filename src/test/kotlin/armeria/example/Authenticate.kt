@@ -9,10 +9,10 @@ import java.util.function.Function
 @DecoratorFactory(MyAuthDecoratorFactoryFunction::class)
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.TYPE)
-annotation class Authorize
+annotation class Authenticate
 
-class MyAuthDecoratorFactoryFunction : DecoratorFactoryFunction<Authorize> {
-    override fun newDecorator(parameter: Authorize): Function<in HttpService, out HttpService> {
+class MyAuthDecoratorFactoryFunction : DecoratorFactoryFunction<Authenticate> {
+    override fun newDecorator(parameter: Authenticate): Function<in HttpService, out HttpService> {
         return AuthService.newDecorator(
             MyAuthenticator()
         )
