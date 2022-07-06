@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package armeria.example;
+
+import "google/api/annotations.proto";
+
+service HelloService {
+    rpc Hello (HelloRequest) returns (HelloReply) {}
+    rpc HelloAuth (HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            get: "/hello"
+        };
+    }
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
