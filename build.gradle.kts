@@ -30,7 +30,7 @@ tasks.withType<KotlinCompile> {
 
 dependencyManagement {
     imports {
-        mavenBom("com.linecorp.armeria:armeria-bom:1.16.0")
+        mavenBom("com.linecorp.armeria:armeria-bom:1.17.0")
     }
 }
 
