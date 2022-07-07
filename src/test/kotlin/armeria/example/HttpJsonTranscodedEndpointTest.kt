@@ -53,7 +53,15 @@ class HttpJsonTranscodedEndpointTest {
     }
 
     @Test
-    fun httpJsonTranscodeURITest() {
+    fun httpJsonTranscodeURIFailTest() {
+        val response = webClient.get("/hello?name=dduckgu").aggregate().get()
+
+        //success!
+        assert(response.status() == HttpStatus.UNAUTHORIZED)
+    }
+
+    @Test
+    fun httpJsonTranscodeURISucceedTest() {
         val response = webClient.get("/hello?name=dduckgu").aggregate().get()
 
         //fails
